@@ -1,0 +1,23 @@
+# Object files
+obj/*.o
+
+# Executable files
+bin/my_shell
+
+# Temporary files
+*.tmp
+*.swp
+
+# Backup files
+*~
+
+# Debug files
+*.log
+
+# OS files
+.DS_Store
+
+bin/test_parser
+bin/test_executor
+bin/test_parser
+bin/test_executor
