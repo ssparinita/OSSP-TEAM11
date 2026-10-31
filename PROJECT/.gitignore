@@ -1,0 +1,9 @@
+backup_sync
+__pycache__/
+.venv/
+logs/*
+!logs/.gitkeep
+demo_backup/*
+!demo_backup/.gitkeep
+versions/*
+!versions/.gitkeep

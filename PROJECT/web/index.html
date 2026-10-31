@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Linux Backup Control Center</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+<header>
+  <div class="brand"><div class="logo">⌁</div><div><h1>Linux Backup & Synchronization System</h1><p>Operating Systems & Systems Programming</p></div></div>
+  <div class="status"><i id="statusDot"></i><b id="statusText">CHECKING</b><span>•</span><b>LOCAL BRIDGE</b></div>
+</header>
+
+<section class="bar">
+  <div class="paths">
+    <div><label>SOURCE</label><code id="sourcePath">demo_source</code></div>
+    <strong>→</strong>
+    <div><label>BACKUP</label><code id="backupPath">demo_backup</code></div>
+  </div>
+  <div class="buttons">
+    <span>● inotify <b id="inotify">INACTIVE</b></span>
+    <button id="start">START MONITORING</button><button id="stop">STOP MONITORING</button>
+  </div>
+</section>
+
+<section class="dirs">
+  <div class="card"><div class="title"><div><label>LIVE FILE SYSTEM</label><h2>Source Directory</h2></div><span id="scount">0 files</span></div><code>/demo_source</code><div id="sourceFiles" class="files"></div></div>
+  <div class="middle"><div class="orb" id="orb">SYNC</div><div class="stream"></div><b id="sync">SYSTEM IDLE</b><small id="current">Waiting for event</small></div>
+  <div class="card"><div class="title"><div><label>LIVE BACKUP</label><h2>Backup Directory</h2></div><span id="bcount">0 files</span></div><code>/demo_backup</code><div id="backupFiles" class="files"></div></div>
+</section>
+
+<section class="card process">
+  <div class="title"><div><label>CURRENT OPERATION</label><h2 id="operation">Waiting for filesystem event</h2></div><span id="badge">IDLE</span></div>
+  <div class="nodes" id="nodes">
+    <div>01<strong>inotify</strong><small>EVENT</small></div><em></em>
+    <div>02<strong>stat()</strong><small>METADATA</small></div><em></em>
+    <div>03<strong>open()</strong><small>SOURCE</small></div><em></em>
+    <div>04<strong>read()</strong><small>DATA</small></div><em></em>
+    <div>05<strong>write()</strong><small>BACKUP</small></div><em></em>
+    <div>06<strong>close()</strong><small>COMPLETE</small></div>
+  </div>
+  <div class="progress"><span id="progress"></span></div>
+  <div class="progressText"><span id="stage">SYSTEM IDLE</span><span id="percent">0%</span></div>
+</section>
+
+<section class="bottom">
+  <div class="card"><div class="title"><div><label>REAL-TIME FEED</label><h2>Activity Log</h2></div><button id="clear">CLEAR</button></div><div class="terminal" id="log"></div></div>
+  <div class="card"><div class="title"><div><label>OS LAYER</label><h2>System Calls</h2></div><span class="live">LIVE</span></div><div id="calls"></div></div>
+  <div class="card"><div class="title"><div><label>HISTORY</label><h2>Version History</h2></div><button id="restore">RESTORE LATEST</button></div><h3 id="versionFile">machine.txt</h3><div id="versions"></div></div>
+</section>
+<footer>OSSP-Final • Linux inotify • C daemon • Local API bridge</footer>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
